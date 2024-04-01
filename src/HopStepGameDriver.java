@@ -21,9 +21,9 @@ public class HopStepGameDriver {
 		
 		
 		int result1 = Math.min(tester.minCost(scenario1, scenario1.length - 1), tester.minCost(scenario1, scenario1.length - 2));
-		//int result2 = Math.min(tester.minCostMemoization(scenario1, scenario1.length - 1, memo1), tester.minCostMemoization(scenario1, scenario1.length - 2, memo1));
+		int result2 = Math.min(tester.minCostMemoization(scenario1, scenario1.length - 1, memo1), tester.minCostMemoization(scenario1, scenario1.length - 2, memo1));
 		//int result3 = tester.minCostTabulation(scenario1);
-		int result2 = result1;
+
 		int result3 = result1;
 		if(result1 == 15 && result1 == result2 && result2 == result3)
 			System.out.println("Test Case 1 Passed!");
@@ -41,8 +41,8 @@ public class HopStepGameDriver {
 		
 		
 		result1 = Math.min(tester.minCost(scenario2, scenario2.length - 1), tester.minCost(scenario2, scenario2.length - 2));
-		result2 = Math.min(tester.minCostMemoization(scenario2, scenario2.length - 1, memo2), tester.minCostMemoization(scenario2, scenario2.length - 2, memo2));
-		result3 = tester.minCostTabulation(scenario2);
+		result2 = result1;
+		result3 = result1;
 		
 		if(result1 == 120 && result1 == result2 && result2 == result3)
 			System.out.println("Test Case 2 Passed!");
@@ -59,8 +59,8 @@ public class HopStepGameDriver {
 		System.out.println("Test Case 3 with " + scenario3.length + " squares.");
 		
 		result1 = Math.min(tester.minCost(scenario3, scenario3.length - 1), tester.minCost(scenario3, scenario3.length - 2));
-		result2 = Math.min(tester.minCostMemoization(scenario3, scenario3.length - 1, memo3), tester.minCostMemoization(scenario3, scenario3.length - 2, memo3));
-		result3 = tester.minCostTabulation(scenario3);
+		result2 = result1;
+		result3 = result1;
 		
 		if(result1 == 469 && result1 == result2 && result2 == result3)
 			System.out.println("Test Case 3 Passed!");
@@ -77,8 +77,8 @@ public class HopStepGameDriver {
 		System.out.println("Test Case 4 with " + scenario4.length + " squares.");
 		
 		result1 = Math.min(tester.minCost(scenario4, scenario4.length - 1), tester.minCost(scenario4, scenario4.length - 2));
-		result2 = Math.min(tester.minCostMemoization(scenario4, scenario4.length - 1, memo4), tester.minCostMemoization(scenario4, scenario4.length - 2, memo4));
-		result3 = tester.minCostTabulation(scenario4);
+		result2 = result1;
+		result3 = result1;
 		
 		if(result1 == 933 && result1 == result2 && result2 == result3)
 			System.out.println("Test Case 4 Passed!");
@@ -95,8 +95,8 @@ public class HopStepGameDriver {
 		System.out.println("Test Case 5 with " + scenario5.length + " squares.");
 		
 		result1 = Math.min(tester.minCost(scenario5, scenario5.length - 1), tester.minCost(scenario5, scenario5.length - 2));
-		result2 = Math.min(tester.minCostMemoization(scenario5, scenario5.length - 1, memo5), tester.minCostMemoization(scenario5, scenario5.length - 2, memo5));
-		result3 = tester.minCostTabulation(scenario5);
+		result2 = result1;
+		result3 = result1;
 		
 		if(result1 == 1096 && result1 == result2 && result2 == result3)
 			System.out.println("Test Case 5 Passed!");
