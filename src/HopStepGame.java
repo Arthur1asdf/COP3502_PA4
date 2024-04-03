@@ -5,6 +5,7 @@
  */
 public class HopStepGame {
     //class attributes must be private
+    //finished function do not change
     public int minCost(int squares[], int numOfSquares)
     {
         //base case for when the numOfSquares var goes out of bounds
@@ -21,10 +22,29 @@ public class HopStepGame {
 
         return squares[numOfSquares] + Math.min(minCost(squares, numOfSquares -2), minCost(squares, numOfSquares - 1));
     }
+
+    //unfinished
     public int minCostMemoization(int squares[], int numOfSquares, int prevResults[])
     {
-        return 0;
+        //base case for when the numOfSquares var goes out of bounds
+        if (numOfSquares < 0)
+        {
+            return 0;
+        }
+        //base case for when we reach the end which is the last of second last array
+        //prob don't   even need this however it will be needed to compare with the basecase above
+        if (numOfSquares == 0 || numOfSquares == 1)
+        {
+            return squares[numOfSquares];
+        }
+        else
+        {
+            prevResults[numOfSquares] =  squares[numOfSquares] + Math.min(minCost(squares, numOfSquares -2), minCost(squares, numOfSquares - 1));
+        }
+        return prevResults[numOfSquares];
+       
     }
+    //unfinished
     public int minCostTabulation(int squares[])
     {
         return 0;

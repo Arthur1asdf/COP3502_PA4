@@ -23,7 +23,6 @@ public class HopStepGameDriver {
 		int result1 = Math.min(tester.minCost(scenario1, scenario1.length - 1), tester.minCost(scenario1, scenario1.length - 2));
 		int result2 = Math.min(tester.minCostMemoization(scenario1, scenario1.length - 1, memo1), tester.minCostMemoization(scenario1, scenario1.length - 2, memo1));
 		//int result3 = tester.minCostTabulation(scenario1);
-
 		int result3 = result1;
 		if(result1 == 15 && result1 == result2 && result2 == result3)
 			System.out.println("Test Case 1 Passed!");
