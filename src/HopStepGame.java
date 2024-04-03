@@ -19,7 +19,7 @@ public class HopStepGame {
         {
             return squares[numOfSquares];
         }
-
+        //System.out.println(squares[numOfSquares] + "j");
         return squares[numOfSquares] + Math.min(minCost(squares, numOfSquares -2), minCost(squares, numOfSquares - 1));
     }
 
@@ -47,6 +47,39 @@ public class HopStepGame {
     //unfinished
     public int minCostTabulation(int squares[])
     {
-        return 0;
+        /*int n = squares.length;
+        int total = 0;
+        System.out.println(n);
+        for(int i = 0; i < n; i++)
+        {
+            if(i == n - 1  || i == n - 2 )
+            {
+                return total;
+            }
+            total =  total + Math.min(squares[i], squares[i + 1]);
+            System.out.println(total);
+            if(Math.min(squares[i], squares[i + 1]) == squares[i + 1])
+            {
+                i++;
+            }
+        }
+
+        return total;
+    }*/
+
+        int[] min = new int[squares.length];
+    
+        // Base cases
+        min[0] = squares[0]; 
+        min[1] = squares[1]; 
+    
+        for (int i = 2; i < squares.length; i++) 
+        {
+            // The cost for the current square is the cost of the square itself plus
+            // the minimum of the cost of getting to one or two squares before it.
+            min[i] = squares[i] + Math.min(min[i - 1], min[i - 2]);
+        }
+    
+        return Math.min(min[squares.length - 1], min[squares.length - 2]);
     }
 }
