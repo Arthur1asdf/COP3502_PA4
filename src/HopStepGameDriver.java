@@ -21,10 +21,8 @@ public class HopStepGameDriver {
 		
 		
 		int result1 = Math.min(tester.minCost(scenario1, scenario1.length - 1), tester.minCost(scenario1, scenario1.length - 2));
-		//int result2 = Math.min(tester.minCostMemoization(scenario1, scenario1.length - 1, memo1), tester.minCostMemoization(scenario1, scenario1.length - 2, memo1));
-		//int result3 = tester.minCostTabulation(scenario1);
-		int result2 = result1;
-		int result3 = result1;
+		int result2 = Math.min(tester.minCostMemoization(scenario1, scenario1.length - 1, memo1), tester.minCostMemoization(scenario1, scenario1.length - 2, memo1));
+		int result3 = tester.minCostTabulation(scenario1);
 		if(result1 == 15 && result1 == result2 && result2 == result3)
 			System.out.println("Test Case 1 Passed!");
 		else if(result1 != 15 || result2 != 15 ||result3 != 15)
@@ -39,13 +37,13 @@ public class HopStepGameDriver {
 		int memo2 [] = new int [scenario2.length];
 		System.out.println("Test Case 2 with " + scenario2.length + " squares.");
 		
-		
+		 
 		result1 = Math.min(tester.minCost(scenario2, scenario2.length - 1), tester.minCost(scenario2, scenario2.length - 2));
 		result2 = Math.min(tester.minCostMemoization(scenario2, scenario2.length - 1, memo2), tester.minCostMemoization(scenario2, scenario2.length - 2, memo2));
 		result3 = tester.minCostTabulation(scenario2);
 		
 		if(result1 == 120 && result1 == result2 && result2 == result3)
-			System.out.println("Test Case 2 Passed!");
+			System.out.println("Test Case 2 Passed!" + result1);
 		else if(result1 != 120 || result2 != 120 ||result3 != 120)
 			System.out.println("Test Case 2 didn't Passed! Incorrect result returned for one or more of the methods.");
 		else if(result1 != result2 || result2 != result3)
