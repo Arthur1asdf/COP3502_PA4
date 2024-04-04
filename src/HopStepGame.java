@@ -23,9 +23,30 @@ public class HopStepGame {
         return squares[numOfSquares] + Math.min(minCost(squares, numOfSquares -2), minCost(squares, numOfSquares - 1));
     }
 
-    //unfinished
+    private int fib;
     public int minCostMemoization(int squares[], int numOfSquares, int prevResults[])
     {
+  
+        /*if(numOfSquares < 0)
+        {
+            return 0;
+        }
+        if(numOfSquares == 1)
+        {
+            fib = squares[0];
+        }
+        if( numOfSquares == 2)
+        {
+            fib = squares[2];
+        }
+        else
+        {
+            prevResults[numOfSquares] =  squares[numOfSquares] + Math.min(minCostMemoization(squares, numOfSquares -2, prevResults), minCostMemoization(squares, numOfSquares - 1, prevResults));
+        }
+        prevResults[numOfSquares] = fib;
+
+        return fib;*/
+
         //base case for when the numOfSquares var goes out of bounds
         if (numOfSquares < 0)
         {
@@ -37,36 +58,18 @@ public class HopStepGame {
         {
             return squares[numOfSquares];
         }
-        else
+        if(prevResults[numOfSquares] != 0)
         {
-            prevResults[numOfSquares] =  squares[numOfSquares] + Math.min(minCost(squares, numOfSquares -2), minCost(squares, numOfSquares - 1));
+            return prevResults[numOfSquares];
         }
+
+        prevResults[numOfSquares] =  squares[numOfSquares] + Math.min(minCostMemoization(squares, numOfSquares -2, prevResults), minCostMemoization(squares, numOfSquares - 1, prevResults));
         return prevResults[numOfSquares];
-       
+
     }
     //unfinished
     public int minCostTabulation(int squares[])
     {
-        /*int n = squares.length;
-        int total = 0;
-        System.out.println(n);
-        for(int i = 0; i < n; i++)
-        {
-            if(i == n - 1  || i == n - 2 )
-            {
-                return total;
-            }
-            total =  total + Math.min(squares[i], squares[i + 1]);
-            System.out.println(total);
-            if(Math.min(squares[i], squares[i + 1]) == squares[i + 1])
-            {
-                i++;
-            }
-        }
-
-        return total;
-    }*/
-
         int[] min = new int[squares.length];
     
         // Base cases
