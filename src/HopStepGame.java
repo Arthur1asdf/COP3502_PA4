@@ -9,17 +9,19 @@ public class HopStepGame {
     public int minCost(int squares[], int numOfSquares)
     {
         //base case for when the numOfSquares var goes out of bounds
+        //this mean it has ended
+        //how we will know if we should go to second last or last index will be determined in the driver file
         if (numOfSquares < 0)
         {
             return 0;
         }
-        //base case for when we reach the end which is the last of second last array
-        //prob don't   even need this however it will be needed to compare with the basecase above
-        if (numOfSquares == 0 || numOfSquares == 1)
+        //the last and second last index
+        if (numOfSquares < 2)
         {
             return squares[numOfSquares];
         }
         //System.out.println(squares[numOfSquares] + "j");
+        //put 2 pointers into the array see which is smaller and add the cost for min distance recursivly
         return squares[numOfSquares] + Math.min(minCost(squares, numOfSquares -2), minCost(squares, numOfSquares - 1));
     }
 
@@ -52,12 +54,13 @@ public class HopStepGame {
         {
             return 0;
         }
-        //base case for when we reach the end which is the last of second last array
-        //prob don't   even need this however it will be needed to compare with the basecase above
-        if (numOfSquares == 0 || numOfSquares == 1)
+        //the last and second last index
+        if (numOfSquares < 2)
         {
             return squares[numOfSquares];
         }
+
+        //when we make an array we always get 0 for all arrays automatically, so we check to see if array is  not 0 to see if we stored anything inside
         if(prevResults[numOfSquares] != 0)
         {
             return prevResults[numOfSquares];
@@ -67,15 +70,17 @@ public class HopStepGame {
         return prevResults[numOfSquares];
 
     }
-    //unfinished
+
     public int minCostTabulation(int squares[])
     {
+        //to store the last two index value
         int[] min = new int[squares.length];
     
-        // Base cases
+        //put the first two indexes so we can add them in the for loop
         min[0] = squares[0]; 
         min[1] = squares[1]; 
-    
+        
+        //we start at 2 because we already established the first 2 indexes therefore we start at two and add the two to find the cost 
         for (int i = 2; i < squares.length; i++) 
         {
             // The cost for the current square is the cost of the square itself plus
